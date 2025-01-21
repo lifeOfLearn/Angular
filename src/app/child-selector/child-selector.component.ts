@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'child-selector',
@@ -9,4 +9,10 @@ import { Component, Input } from '@angular/core';
 export class ChildSelectorComponent {
 
   @Input() item = ''; // any type
+
+  @Output() forParentData = new EventEmitter<string>();
+
+  addMsgToParent(msg: string){
+    this.forParentData.emit(msg);
+  }
 }

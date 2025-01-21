@@ -1,2 +1,11 @@
 <p>child: &#64;Input() item = {{ item }} </p>
+
+
+<p>child: &#64;Output() forParentData = {{ forParentData }}</p>
+<label>
+    <span>Add msg to parent: </span><br/>
+    <input type="text" #newMsg>
+    <button type="button" (click)="addMsgToParent(newMsg.value)">add msg</button>
+</label>
+
 <div>不要使用小老鼠在html,改用& # 64;</div>

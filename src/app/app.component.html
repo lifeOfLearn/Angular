@@ -41,4 +41,8 @@
 <div></div>
 
 <child-selector [item]="forChildData"></child-selector>
+<child-selector (forParentData)="addMsg($event)"></child-selector>
+<ul>
+    <li *ngFor="let msg of msgs">{{msg}}</li>
+</ul>
 <router-outlet />

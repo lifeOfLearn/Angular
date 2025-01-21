@@ -32,4 +32,10 @@ export class AppComponent{
   }
 
   forChildData:string = 'for child data!!!';
+
+  msgs = ['msg1', 'msg2', 'msg3', 'msg4'];
+
+  addMsg(newMsg: string){
+    this.msgs.push(newMsg);
+  }
 }
