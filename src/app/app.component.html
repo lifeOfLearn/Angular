@@ -41,8 +41,51 @@
 <div></div>
 
 <child-selector [item]="forChildData"></child-selector>
+<hr/>
 <child-selector (forParentData)="addMsg($event)"></child-selector>
+<hr/>
+<child-selector [item]="forChildData" (forParentData)="addMsg($event)"></child-selector>
 <ul>
     <li *ngFor="let msg of msgs">{{msg}}</li>
 </ul>
+
+<two-way-binding [(size)]="fontSize"></two-way-binding>
+<div [style.font-size.px]="fontSize">parent size: {{fontSize}}px</div>
+
+<!--內容投影-->
+<app-content>
+    <!--單槽測試-->
+    <div>這邊是內容投影的父元件Html標籤內容1</div>
+    <div>這邊是內容投影的父元件Html標籤內容2</div>
+    <div>這邊是內容投影的父元件Html標籤內容3</div>
+<!--多槽測試-->
+<p>p標籤</p>
+<div>div標籤</div>
+<p class="clazz">p + class為clazz</p>
+<div class="clazz">div標籤 + class為clazz</div>
+<div class="clazz cls">div標籤 + class為clazz和cls</div>
+<p id="idd">p + id為idd</p>
+<input type="button" value="type=button"><br>
+<input type="submit" value="type=submit"><br>
+<input type="text" value="type=text"><br>
+<input type="text" value="type=text disabled" disabled><br>    
+</app-content>
+<multi-content>
+    <!--多槽測試-->
+    <p>p標籤</p>
+    <div>div標籤</div>
+    <p class="clazz">p + class為clazz</p>
+    <div class="clazz">div標籤 + class為clazz</div>
+    <div class="clazz cls">div標籤 + class為clazz和cls</div>
+    <p id="idd">p + id為idd</p>
+    <input type="button" value="type=button"><br>
+    <input type="submit" value="type=submit"><br>
+    <input type="text" value="type=text"><br>
+    <input type="text" value="type=text disabled" disabled><br>
+</multi-content>
+
+
+<template-variable></template-variable>
+
+<app-svg-template></app-svg-template>
 <router-outlet />

@@ -9,9 +9,14 @@ import { EventComponentComponent } from './event-component/event-component.compo
 import { PasiveComponentComponent } from './pasive-component/pasive-component.component';
 import { KeyEventComponentComponent } from './key-event-component/key-event-component.component';
 import { ChildSelectorComponent } from './child-selector/child-selector.component';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { ContentComponent } from './content/content.component';
+import { MultiContentComponent } from './multi-content/multi-content.component';
+import { TemplateVariableComponent } from './template-variable/template-variable.component';
+import { SvgTemplateComponent } from './svg-template/svg-template.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent],
+  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent, TwoWayBindingComponent, ContentComponent, MultiContentComponent, TemplateVariableComponent, SvgTemplateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -38,4 +43,7 @@ export class AppComponent{
   addMsg(newMsg: string){
     this.msgs.push(newMsg);
   }
+
+
+  fontSize=16;
 }

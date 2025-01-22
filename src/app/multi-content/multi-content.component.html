@@ -1,0 +1,31 @@
+<ul>
+    <li>
+        <span style='color:red;'>多槽內容投影:請註解其他li標籤避免搶到</span>
+        <ul>
+            <li>
+                <span>選擇標籤p</span>
+                <ng-content select="p"></ng-content>
+            </li>
+            <li>
+                <span>選擇標籤div</span>
+                <ng-content select="div"></ng-content>
+            </li>
+            <li>
+                <span>屬性有type</span><br>
+                <ng-content select="[type],br"></ng-content>
+            </li>
+            <li>
+                <span>屬性有type="submit"</span>
+                <ng-content select="[type='submit']"></ng-content>
+            </li>
+            <li>
+                <span>class有 clazz</span>
+                <ng-content select=".clazz"></ng-content>
+            </li>
+            <li>
+                <span>所有input且沒有disable這個屬性</span>
+                <ng-content select="input:not([disabled])"></ng-content>
+            </li>
+        </ul>
+    </li>
+</ul>

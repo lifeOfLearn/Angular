@@ -1,0 +1,9 @@
+<p>樣板變數</p>
+<input #tempVar type="text" value="123">
+<button type="button" (click)="callTemp(tempVar.value)">button</button>
+<button type="button" (click)="callTempObj(tempVar)">buttonObj</button><br>
+
+<input [(ngModel)]="varName" #var1="ngModel" type="text" value="testName">
+<button type="button" (click)="callVarModel(var1)">btn</button>
+<div>{{varName}}</div>
+

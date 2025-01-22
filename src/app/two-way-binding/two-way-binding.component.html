@@ -1,0 +1,8 @@
+<p>two-way-binding</p>
+<div>
+    <div>
+        <button type="button" (click)="dec()" title="smaller">-</button>
+        <span [style.font-size.px]="size">字體大小,size:{{size}} px</span>    
+        <button type="button" (click)="inc()" title="bigger">+</button>
+    </div>
+</div>
