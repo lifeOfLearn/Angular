@@ -14,9 +14,11 @@ import { ContentComponent } from './content/content.component';
 import { MultiContentComponent } from './multi-content/multi-content.component';
 import { TemplateVariableComponent } from './template-variable/template-variable.component';
 import { SvgTemplateComponent } from './svg-template/svg-template.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { MyDirectiveDirective } from './my-directive.directive';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent, TwoWayBindingComponent, ContentComponent, MultiContentComponent, TemplateVariableComponent, SvgTemplateComponent],
+  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent, TwoWayBindingComponent, ContentComponent, MultiContentComponent, TemplateVariableComponent, SvgTemplateComponent, DirectivesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

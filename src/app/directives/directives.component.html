@@ -1,0 +1,141 @@
+<p>directives</p>
+<ul>
+    <li>
+        <span>結構指令: 需要import: CommonModule</span>
+        <ul>
+            <li>
+                <div>NgIf</div>
+                <ul>
+                    <li>
+                        <span>結構性語法: *ngIf</span>
+                        <ul>
+                            <li>
+                                <div>1.ngIfBoolean: {{ ngIfBoolean}}</div>
+                                <div *ngIf="ngIfBoolean"> 1-Show NgIf: Boolean = true</div>
+                                <div *ngIf="!ngIfBoolean"> 2-Show NgIf: Boolean = false</div>
+                            </li>
+                            <li>
+                                <div>2.class: <span>&#123;name:string&#125;</span> | null = {{class}}</div>
+                                <div *ngIf="class">class.name = {{class.name}}</div>
+                            </li>
+                            <li>
+                                <div>3.ngIf : if else</div>
+                                <div *ngIf="ngIfBoolean; else falseView">ngIfBoolean = true, not show else</div>
+                                <ng-template #falseView>ng-template #falseView : ngIfBoolean = false, show else</ng-template>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>非結構性語法,使用屬性語法: [ngIf]</span>
+                        <ul>
+                            <li>
+                                <div>4.if exist then &lt;ng-template&gt; show </div>
+                                <ng-template [ngIf]="class">
+                                    <div>[ngIf]=true class.name = {{class.name}}</div>
+                                </ng-template>   
+                            </li>
+                        </ul>
+                    </li>
+                    <li>第二點的*ngIf 等價 第四點的[ngIf] , 因為抓到*後自動將整個轉成 &lt;ng-template&gt;,另外&lt;ng-template&gt;不會真正被渲染,因為不是DOM元素</li>
+                </ul>
+            </li>
+            <li>
+                <div>NgFor</div>
+                <ul>
+                    <li>
+                        <span>結構性語法: *ngFor</span>
+                        <ul>
+                            <li>
+                                <div>1. *ngFor = &quot;let 迴圈跑的變數 of 要抓取的內容變數&quot;</div>
+                                <ul>
+                                    <li *ngFor="let item of ngForItems">
+                                        <span>ngForItems.id = {{ item.id }}</span>
+                                        <span>, ngForItems.name = {{ item.name }}</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>2.增加index</div>
+                                <ul>
+                                    <li *ngFor="let item of ngForItems; let i = index">
+                                        <span> index = {{i}}</span>
+                                        <span>, ngForItems.id = {{ item.id }}</span>
+                                        <span>, ngForItems.name = {{ item.name }}</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>3.奇偶</div>
+                                <ul>
+                                    <li *ngFor="let item of ngForItems; let i = index; let isEven = even; let isOdd = odd">
+                                        <span *ngIf="isEven">even</span>
+                                        <span *ngIf="isOdd">odd </span>
+                                        <span>, index = {{i}}</span>
+                                        <span>, ngForItems.id = {{ item.id }}</span>
+                                        <span>, ngForItems.name = {{ item.name }}</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>4.追蹤函數trackBy</div>
+                                <ul>
+                                    <li *ngFor="let item of ngForItems; let i = index; let isEven = even; let isOdd = odd; trackBy: trackById">
+                                        <span *ngIf="isEven">even</span>
+                                        <span *ngIf="isOdd">odd </span>
+                                        <span>, index = {{i}}</span>
+                                        <span>, ngForItems.id = {{ item.id }}</span>
+                                        <span>, ngForItems.name = {{ item.name }}</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>非結構性語法,使用屬性語法: ngFor</span>
+                        <ul>
+                            <li>
+                                <div>5.ng-template寫法</div>
+                                <ul>
+                                    <ng-template ngFor let-item [ngForOf]="ngForItems"  let-i = "index" let-isEven = "even" let-isOdd = "odd" [ngForTrackBy]="trackById">
+                                        <li>
+                                            <span *ngIf="isEven">even</span>
+                                            <span *ngIf="isOdd">odd </span>
+                                            <span>, index = {{i}}</span>
+                                            <span>, ngForItems.id = {{ item.id }}</span>
+                                            <span>, ngForItems.name = {{ item.name }}</span>
+                                        </li>
+                                    </ng-template>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>第四點的*ngFor 等價 第五點的ngFor</li>
+                </ul>
+            </li>
+            <li>
+                <div>自訂義結構指令</div>
+                <p *appUnlessMyDirective="true">This will be displayed when the condition is true.</p>
+                <p *appUnlessMyDirective="false">This will be displayed when the condition is true.</p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span>屬性指令</span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li>
+                <div>自訂義屬性指令</div>
+                <div appMyDirective>MyDirective: hightLight</div>  
+                <div appMyDirective hightLightColor="blue">MyDirective: hightLight Blue</div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<div>&#64;ViewChild 使用</div>
+<div *ngIf="show; then thenBlock; else elseBlock">這邊內容將不會顯示</div>
+<ng-template #primaryBlock>Primary text to show</ng-template>
+<ng-template #secondaryBlock>Secondary text to show</ng-template>
+<ng-template #elseBlock>Alternate text while primary text is hidden</ng-template>
