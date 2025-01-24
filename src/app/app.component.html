@@ -90,4 +90,12 @@
 <app-svg-template></app-svg-template>
 
 <app-directives></app-directives>
+
+<oninit-and-onchanges 
+    [theVar]="testOnChangeLifeHook" 
+    [theVar2]="testOnChangeLifeHook2" 
+    [(theVar3)]="testOnChangeLifeHook3">
+    <p #afterContentTest>內容投影</p>
+</oninit-and-onchanges>
+<input type="text" [(ngModel)]="testOnChangeLifeHook3">
 <router-outlet />

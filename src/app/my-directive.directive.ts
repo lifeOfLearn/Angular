@@ -4,6 +4,7 @@ import { Directive, ElementRef, HostListener, Input , OnChanges, SimpleChanges} 
   selector: '[appMyDirective]'
 })
 export class MyDirectiveDirective {
+  
   constructor(private e : ElementRef) {
     this.e.nativeElement.style.backgroundColor = 'yellow';
    }

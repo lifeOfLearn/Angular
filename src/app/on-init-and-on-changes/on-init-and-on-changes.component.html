@@ -1,0 +1,12 @@
+<div>自己雙向繫結不會觸發ngOnChanges:{{theVar}}</div>
+<input type="text" [(ngModel)]="theVar">
+<input type="text" [style.color]="colorR" (keydown)="onKeyDown($event)" placeholder="keydown">
+<ng-content></ng-content>
+<div #viewTest>&#64;ViewChild測試afterViewXXX</div>
+<div>
+    <span>測試OnDestroy</span>
+    <button (click)="toggleDiv()">切換div</button>
+    <div *ngIf="divIsVisable">
+        <div #testOnDestroyDiv>我是DIV</div>
+    </div>
+</div>

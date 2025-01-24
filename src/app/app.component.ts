@@ -16,9 +16,10 @@ import { TemplateVariableComponent } from './template-variable/template-variable
 import { SvgTemplateComponent } from './svg-template/svg-template.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { MyDirectiveDirective } from './my-directive.directive';
+import { OnInitAndOnChangesComponent } from './on-init-and-on-changes/on-init-and-on-changes.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent, TwoWayBindingComponent, ContentComponent, MultiContentComponent, TemplateVariableComponent, SvgTemplateComponent, DirectivesComponent],
+  imports: [RouterOutlet,FormsModule, NewComponentComponent, CommonModule, ClassComponentComponent, StyleComponentComponent, EventComponentComponent, PasiveComponentComponent, KeyEventComponentComponent, ChildSelectorComponent, TwoWayBindingComponent, ContentComponent, MultiContentComponent, TemplateVariableComponent, SvgTemplateComponent, DirectivesComponent, OnInitAndOnChangesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -48,4 +49,7 @@ export class AppComponent{
 
 
   fontSize=16;
+  testOnChangeLifeHook:string = "parentVar";
+  testOnChangeLifeHook2:string = "parentVar2";
+  testOnChangeLifeHook3:string = "parentVar3";
 }
